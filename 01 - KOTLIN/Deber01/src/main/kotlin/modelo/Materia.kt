@@ -30,15 +30,17 @@ data class Materia(
             escribirArchivo(materiasActualizadas)
         }
 
-        fun update(codigo: String, creditos: Int,  horas: Int) {
-            val materias = getMaterias()
-            materias.forEach { materia ->
-                if (materia.codigo == codigo) {
-                    materia.horas = horas
-                    materia.creditos = creditos
+        fun update(codigo: String, creditos: Int, horas: Int) {
+            if (readByCodigo(codigo) != null) {
+                val materias = getMaterias()
+                materias.forEach { materia ->
+                    if (materia.codigo == codigo) {
+                        materia.horas = horas
+                        materia.creditos = creditos
+                    }
                 }
+                escribirArchivo(materias)
             }
-            escribirArchivo(materias)
         }
 
         fun readByCodigo(codigo: String): Materia? {
@@ -46,7 +48,7 @@ data class Materia(
             return if (materiaEncontrada != null) {
                 materiaEncontrada
             } else {
-                println("No se encontró la materia con código: $codigo")
+                println("\nNo se encontró la materia con código: $codigo")
                 null
             }
         }
@@ -54,17 +56,14 @@ data class Materia(
         fun deleteByCodigo(codigo: String) {
             val materiaEncontrada = readByCodigo(codigo)
             if (materiaEncontrada != null) {
-                println("¿Está seguro de que desea borrar la materia? (S/N)")
-                when (readLine()?.trim()?.lowercase()) {
-                    "s" -> {
-                        val materias = getMaterias()
-                        materias.remove(materiaEncontrada)
-                        escribirArchivo(materias)
-                        println("La materia con código $codigo se eliminó")
-                    }
-                    "n" -> println("\nOperación de borrado cancelada.")
-                    else -> println("\nRespuesta inválida. Operación de borrado cancelada.")
+                val materias = getMaterias()
+                materias.remove(materiaEncontrada)
+                escribirArchivo(materias)
+                val profesores = Profesor.getProfesores()
+                profesores.forEach{profesor ->
+                    profesor.materias?.remove(materiaEncontrada)
                 }
+                Profesor.escribirArchivo(profesores)
             }
         }
 
@@ -72,7 +71,7 @@ data class Materia(
             try {
                 File("materias.json").writeText(Json.encodeToString(materias))
             } catch (e: IOException) {
-                println("Error al escribir en el archivo 'materias.json': ${e.message}")
+                println("\nError al escribir en el archivo 'materias.json': ${e.message}")
             }
         }
 

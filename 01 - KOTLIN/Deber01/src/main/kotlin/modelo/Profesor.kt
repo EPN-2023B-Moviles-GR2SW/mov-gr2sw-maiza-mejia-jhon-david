@@ -34,13 +34,15 @@ data class Profesor(
         }
 
         fun update(cedula: String, sueldo: Double) {
-            val profesores = getProfesores()
-            profesores.forEach { profesor ->
-                if (profesor.cedula == cedula) {
-                    profesor.sueldo = sueldo
+            if (readByCedula(cedula) != null) {
+                val profesores = getProfesores()
+                profesores.forEach { profesor ->
+                    if (profesor.cedula == cedula) {
+                        profesor.sueldo = sueldo
+                    }
                 }
+                escribirArchivo(profesores)
             }
-            escribirArchivo(profesores)
         }
 
         fun readByCedula(cedula: String): Profesor? {
@@ -48,7 +50,7 @@ data class Profesor(
             return if (profesorEncontrado != null) {
                 profesorEncontrado
             } else {
-                println("No se encontró al profesor/ra con cédula: $cedula")
+                println("\nNo se encontró al profesor/ra con cédula: $cedula")
                 null
             }
         }
@@ -56,25 +58,18 @@ data class Profesor(
         fun deleteByCedula(cedula: String) {
             val profesorEncontrado = readByCedula(cedula)
             if (profesorEncontrado != null) {
-                println("¿Está seguro de que desea borrar? (S/N)")
-                when (readLine()?.trim()?.lowercase()) {
-                    "s" -> {
-                        val profesores = getProfesores()
-                        profesores.remove(profesorEncontrado)
-                        escribirArchivo(profesores)
-                        println("El profesor/ra con cédula $cedula se eliminó")
-                    }
-                    "n" -> println("\nOperación de borrado cancelada.")
-                    else -> println("\nRespuesta inválida. Operación de borrado cancelada.")
-                }
+                val profesores = getProfesores()
+                profesores.remove(profesorEncontrado)
+                escribirArchivo(profesores)
             }
+
         }
 
-        private fun escribirArchivo(profesores: List<Profesor>) {
+        fun escribirArchivo(profesores: List<Profesor>) {
             try {
                 File("profesores.json").writeText(Json.encodeToString(profesores))
             } catch (e: IOException) {
-                println("Error al escribir en el archivo 'materias.json': ${e.message}")
+                println("\nError al escribir en el archivo 'materias.json': ${e.message}")
             }
         }
 
