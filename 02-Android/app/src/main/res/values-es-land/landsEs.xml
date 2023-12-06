@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saludoIngles">Buenos Dias Land Es</string>
+    <color name="background">#AA45F4</color>
+    <color name="text">#BBA974</color>
+</resources>

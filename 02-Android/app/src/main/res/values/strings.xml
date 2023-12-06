@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">B2023gr2sw</string>
-    <string name="title_activity_aresources">AResources</string>
-    <string name="saludo">Buenos días</string>
+    <string name="app_name" translatable="false">B2023gr2sw</string>
+    <string name="title_activity_aresources" translatable="false">AResources</string>
+    <string name="saludo" translatable="false">Buenos días</string>
+    <string name="saludoIngles">Buenos Dias</string>
+    <color name="background">#03A9F4</color>
+    <color name="text">#03A923</color>
 </resources>
