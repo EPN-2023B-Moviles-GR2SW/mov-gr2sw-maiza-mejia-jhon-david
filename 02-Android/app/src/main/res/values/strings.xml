@@ -5,4 +5,5 @@
     <string name="saludoIngles">Buenos Dias</string>
     <color name="background">#03A9F4</color>
     <color name="text">#03A923</color>
+    <string name="title_activity_blist_view">BListView</string>
 </resources>
