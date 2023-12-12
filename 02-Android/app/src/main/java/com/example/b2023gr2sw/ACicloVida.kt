@@ -2,14 +2,13 @@ package com.example.b2023gr2sw
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.compose.material3.Snackbar
 import com.google.android.material.snackbar.Snackbar
 
 class ACicloVida : AppCompatActivity() {
     var textoGlobal = ""
     fun mostrarSnackbar(texto:String){
         textoGlobal += texto
-        val snack = Snackbar.make(findViewById(R.id.btn_ciclo_vida), textoGlobal, Snackbar.LENGTH_INDEFINITE)
+        val snack = Snackbar.make(findViewById(R.id.cl_ciclo_vida), textoGlobal, Snackbar.LENGTH_INDEFINITE)
         snack.show()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
