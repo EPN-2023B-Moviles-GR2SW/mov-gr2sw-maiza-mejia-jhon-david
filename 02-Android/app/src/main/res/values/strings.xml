@@ -5,5 +5,11 @@
     <string name="saludoIngles">Buenos Dias</string>
     <color name="background">#03A9F4</color>
     <color name="text">#03A923</color>
-    <string name="title_activity_blist_view">BListView</string>
+    <string name="title_activity_blist_view" translatable="false">BListView</string>
+    <string-array name="string_array_opciones_dialogo">
+        <item>Lunes</item>>
+        <item>Martes</item>>
+        <item>Miercoles</item>>
+    </string-array>>
+
 </resources>
