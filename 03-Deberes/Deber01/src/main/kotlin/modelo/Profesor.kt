@@ -14,7 +14,7 @@ data class Profesor(
     val esProfesorTitular: Boolean,
     var sueldo: Double,
     val fechaContratacion: LocalDate,
-    val materias: ArrayList<Materia>? = arrayListOf()
+    var materias: ArrayList<Materia>? = arrayListOf()
 ) {
 
     companion object {
@@ -33,12 +33,13 @@ data class Profesor(
             escribirArchivo(profesoresActualizados)
         }
 
-        fun update(cedula: String, sueldo: Double) {
+        fun update(cedula: String, sueldo: Double, materias: ArrayList<Materia> ) {
             if (readByCedula(cedula) != null) {
                 val profesores = getProfesores()
                 profesores.forEach { profesor ->
                     if (profesor.cedula == cedula) {
                         profesor.sueldo = sueldo
+                        profesor.materias?.addAll(materias)
                     }
                 }
                 escribirArchivo(profesores)

@@ -21,6 +21,7 @@ data class Materia(
             if (!archivoMaterias.exists() || archivoMaterias.length() == 0L) {
                 archivoMaterias.writeText("[]")
             }
+            //src
             val materiasJson = File("materias.json").readText()
             return Json.decodeFromString<ArrayList<Materia>>(materiasJson)
         }
