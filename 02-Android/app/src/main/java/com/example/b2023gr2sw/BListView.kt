@@ -72,6 +72,7 @@ class BListView : AppCompatActivity() {
             }
             R.id.mi_eliminar -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
+                abrirDialogo()
                 return true
             }
             else -> super.onContextItemSelected(item)
@@ -79,8 +80,9 @@ class BListView : AppCompatActivity() {
     }
 
     fun mostrarSnackbar(texto:String){
-        val sanck = Snackbar.make(findViewById(R.id.lv_list_view),
+        val snack = Snackbar.make(findViewById(R.id.lv_list_view),
             texto, Snackbar.LENGTH_LONG)
+        snack.show()
     }
 
     fun abrirDialogo(){
@@ -92,10 +94,10 @@ class BListView : AppCompatActivity() {
                     mostrarSnackbar("Acepto ${which}")
                 }
         )
-                builder.setNegativeButton(
-                    "Cancelar",
-                    null
-                )
+        builder.setNegativeButton(
+            "Cancelar",
+            null
+        )
         val opciones = resources.getStringArray(
             R.array.string_array_opciones_dialogo
         )
@@ -108,15 +110,13 @@ class BListView : AppCompatActivity() {
             opciones,
             seleccionPrevia,
             {dialog,
-                which,
-                isChecked ->
+             which,
+             isChecked ->
                 mostrarSnackbar("Item: ${which}")
             }
         )
-
         val dialogo = builder.create()
         dialogo.show()
-
     }
 }
 
