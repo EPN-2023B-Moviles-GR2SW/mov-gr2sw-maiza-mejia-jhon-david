@@ -168,7 +168,31 @@ fun updateProfesor(){
     }
     print("Ingrese el nuevo sueldo del profesor: ")
     val sueldo = readLine()?.toDoubleOrNull() ?: return
-    Profesor.update(cedula, sueldo)
+
+    val materias: ArrayList<Materia> = arrayListOf()
+    var bandera = true
+    while (bandera) {
+        print("\n¿Desea registrar una nueva materia al profesor? (s/n):\n")
+        when (readLine()?.trim()?.lowercase()) {
+            "s" -> {
+                print("Ingrese el código de la materia: ")
+                val codigo = readLine() ?: return
+                val materiaNueva = Materia.readByCodigo(codigo);
+                if (materiaNueva != null) {
+                    materias.add(materiaNueva)
+                }
+            }
+            "n" -> {
+                bandera = false;
+            }
+            else -> {
+                println("\nRespuesta inválida. Registre nuevamente al profesor.")
+                return
+            }
+        }
+    }
+
+    Profesor.update(cedula, sueldo, materias)
     println("\nSe actualizó correctamente. ")
 }
 
