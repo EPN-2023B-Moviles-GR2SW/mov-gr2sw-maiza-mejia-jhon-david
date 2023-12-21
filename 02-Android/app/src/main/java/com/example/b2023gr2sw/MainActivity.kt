@@ -22,16 +22,19 @@ class MainActivity : AppCompatActivity() {
                     // Logica del negocio
                     val data = result.data
                     mostrarSnackbar(
-                        "${data?.getStringExtra("Nombre modificado")}"
+                        "${data?.getStringExtra("nombreModificado")}"
                     )
                 }
             }
         }
-
     fun mostrarSnackbar(texto:String){
-        val snack = Snackbar.make(findViewById(R.id.lv_list_view),
-            texto, Snackbar.LENGTH_LONG)
-        snack.show()
+        Snackbar
+            .make(
+                findViewById(R.id.id_layout_main),
+                texto,
+                Snackbar.LENGTH_LONG
+            )
+            .show()
     }
 
     val callbackIntentPickUri =
