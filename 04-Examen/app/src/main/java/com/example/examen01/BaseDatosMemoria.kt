@@ -5,11 +5,12 @@ class BaseDatosMemoria {
     companion object {
         val arregloProfesores = arrayListOf<Profesor>()
         val arregloMateriasModelo = arrayListOf<Materia>()
-        val arregloMateriasGrupoA = arrayListOf<Materia>()
-        val arregloMateriasGrupoB = arrayListOf<Materia>()
         var profesorSelecciondo = Profesor("00000000", "nombre", false, 0.0, arregloMateriasModelo)
+        val nuevoProfesor = Profesor("00000000", "nombre", false, 0.0, arregloMateriasModelo)
 
         init {
+            val arregloMateriasGrupoA = arrayListOf<Materia>()
+            val arregloMateriasGrupoB = arrayListOf<Materia>()
             arregloMateriasGrupoA.add(Materia("M001", "Geometria", 3, 3))
             arregloMateriasGrupoB.add(Materia("M002", "Lenguaje", 2, 2))
             arregloMateriasGrupoB.add(Materia("M003", "Semiotico", 2, 2))

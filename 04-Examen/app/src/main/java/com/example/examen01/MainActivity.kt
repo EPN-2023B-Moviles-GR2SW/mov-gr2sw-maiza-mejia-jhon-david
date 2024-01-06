@@ -42,15 +42,7 @@ class MainActivity : AppCompatActivity() {
     fun anadirProfesor(
         adaptador: ArrayAdapter<Profesor>
     ){
-        arregloProfesores.add(
-            Profesor(
-                "17857488",
-                "Adrian",
-                false,
-                10000.00,
-                arregloMaterias
-            )
-        )
+        irActividad(CrearProsefor::class.java)
         adaptador.notifyDataSetChanged()
     }
 
@@ -75,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId){
             R.id.miEditar -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
+                irActividad(CrearProsefor::class.java)
                 return true
             }
             R.id.miEliminar -> {

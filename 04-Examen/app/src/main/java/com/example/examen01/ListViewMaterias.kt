@@ -1,6 +1,7 @@
 package com.example.examen01
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
@@ -43,14 +44,7 @@ class ListViewMaterias : AppCompatActivity() {
     fun anadirMateria(
         adaptador: ArrayAdapter<Materia>
     ){
-        BaseDatosMemoria.profesorSelecciondo.materias.add(
-            Materia(
-                "M004",
-                "Física",
-                3,
-                3,
-            )
-        )
+        irActividad(CrearMateria::class.java)
         adaptador.notifyDataSetChanged()
     }
 
@@ -73,6 +67,7 @@ class ListViewMaterias : AppCompatActivity() {
         return when (item.itemId){
             R.id.miEditar -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
+                irActividad(CrearMateria::class.java)
                 return true
             }
             R.id.miEliminar -> {
@@ -106,5 +101,12 @@ class ListViewMaterias : AppCompatActivity() {
 
         val dialogo = builder.create()
         dialogo.show()
+    }
+
+    fun irActividad (
+        clase: Class <*>
+    ) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 }
