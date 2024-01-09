@@ -34,6 +34,11 @@ class ListViewMaterias : AppCompatActivity() {
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
 
+        val botonVerProfesores= findViewById<Button>(R.id.btnVerProfesores)
+        botonVerProfesores.setOnClickListener {
+            irActividad(MainActivity::class.java)
+        }
+
         val botonAnadirListView = findViewById<Button>(R.id.btnCrearMateria)
         botonAnadirListView.setOnClickListener {
             anadirMateria(adaptador)
@@ -56,21 +61,22 @@ class ListViewMaterias : AppCompatActivity() {
         super.onCreateContextMenu(menu, v, menuInfo)
         // Llenamos las opciones del menu
         val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
+        inflater.inflate(R.menu.menu_materia, menu)
         // Obtener el id del ArrayListSeleccionado
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val posicion = info.position
         posicionItemSeleccionado = posicion
+        BaseDatosMemoria.materiaSeleccionada = profesorSeleccionado.materias[posicion]
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
-            R.id.miEditar -> {
+            R.id.itmEditarMateria -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
-                irActividad(CrearMateria::class.java)
+                irActividad(EditarMateria::class.java)
                 return true
             }
-            R.id.miEliminar -> {
+            R.id.itmEliminarMateria -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
                 abrirDialogo()
                 return true
@@ -80,10 +86,11 @@ class ListViewMaterias : AppCompatActivity() {
     }
 
     fun mostrarSnackbar(texto:String){
-        val snack = Snackbar.make(findViewById(R.id.lvMainActivity),
+        val snack = Snackbar.make(findViewById(R.id.lvMaterias),
             texto, Snackbar.LENGTH_LONG)
         snack.show()
     }
+
     fun abrirDialogo(){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Desea eliminar")
@@ -91,6 +98,7 @@ class ListViewMaterias : AppCompatActivity() {
             "Aceptar",
             DialogInterface.OnClickListener{ dialog, which ->
                 mostrarSnackbar("Acepto ${which}")
+                eliminarMateria()
             }
         )
 
@@ -101,6 +109,18 @@ class ListViewMaterias : AppCompatActivity() {
 
         val dialogo = builder.create()
         dialogo.show()
+    }
+
+    fun eliminarMateria () {
+        val listView = findViewById<ListView>(R.id.lvMainActivity)
+        val adaptador = ArrayAdapter(
+            this, // contexto
+            android.R.layout.simple_list_item_1,
+            profesorSeleccionado.materias
+        )
+        listView.adapter = adaptador
+        adaptador.notifyDataSetChanged()
+        profesorSeleccionado.materias.remove(BaseDatosMemoria.materiaSeleccionada)
     }
 
     fun irActividad (

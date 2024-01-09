@@ -4,62 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrearMateria">
+    tools:context=".EditarProfesor">
 
     <EditText
-        android:id="@+id/inputCodigo"
+        android:id="@+id/inputEditarNombre"
         android:layout_width="255dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="28dp"
-        android:ems="10"
-        android:hint="Código"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/inputNombreMateria"
-        app:layout_constraintEnd_toEndOf="@+id/inputNombreMateria"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputNombreMateria" />
-
-    <EditText
-        android:id="@+id/inputNombreMateria"
-        android:layout_width="255dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="28dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/inputHoras"
-        app:layout_constraintEnd_toEndOf="@+id/inputHoras"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarCedula"
+        app:layout_constraintEnd_toEndOf="@+id/inputEditarCedula"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputHoras" />
+        app:layout_constraintStart_toStartOf="@+id/inputEditarCedula"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815" />
 
     <EditText
-        android:id="@+id/inputHoras"
+        android:id="@+id/inputEditarCedula"
         android:layout_width="255dp"
         android:layout_height="65dp"
         android:layout_marginBottom="28dp"
         android:ems="10"
-        android:hint="Horas"
+        android:hint="Cédula"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/inputCreditos"
-        app:layout_constraintEnd_toEndOf="@+id/inputCreditos"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarSueldo"
+        app:layout_constraintEnd_toEndOf="@+id/inputEditarSueldo"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputCreditos" />
+        app:layout_constraintStart_toStartOf="@+id/inputEditarSueldo" />
 
     <EditText
-        android:id="@+id/inputCreditos"
+        android:id="@+id/inputEditarSueldo"
         android:layout_width="255dp"
         android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
-        android:hint="Créditos"
+        android:hint="Sueldo"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarProfesorTitular"
+        app:layout_constraintEnd_toEndOf="@+id/inputEditarProfesorTitular"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputEditarProfesorTitular" />
+
+    <EditText
+        android:id="@+id/inputEditarProfesorTitular"
+        android:layout_width="255dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="Profesor Titular"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.625" />
 
     <Button
-        android:id="@+id/btnCancelarCrearMateria"
+        android:id="@+id/btnEditarProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <Button
+        android:id="@+id/btnCancelarEditarProfesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar"
@@ -68,29 +82,17 @@
         app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
-
-    <Button
-        android:id="@+id/btnCrearNUevaMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Crear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.78" />
 
     <TextView
-        android:id="@+id/txtCrearMateria"
+        android:id="@+id/txtEditarProfesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear Materia"
+        android:text="Editar Profesor"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/inputCodigo"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarNombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -6,7 +6,7 @@ class BaseDatosMemoria {
         val arregloProfesores = arrayListOf<Profesor>()
         val arregloMateriasModelo = arrayListOf<Materia>()
         var profesorSelecciondo = Profesor("00000000", "nombre", false, 0.0, arregloMateriasModelo)
-        val nuevoProfesor = Profesor("00000000", "nombre", false, 0.0, arregloMateriasModelo)
+        var materiaSeleccionada = Materia("","", 0, 0)
 
         init {
             val arregloMateriasGrupoA = arrayListOf<Materia>()

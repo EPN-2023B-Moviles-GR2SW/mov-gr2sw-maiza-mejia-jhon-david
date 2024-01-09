@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId){
             R.id.miEditar -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
-                irActividad(CrearProsefor::class.java)
+                irActividad(EditarProfesor::class.java)
                 return true
             }
             R.id.miEliminar -> {
@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity() {
             "Aceptar",
             DialogInterface.OnClickListener{ dialog, which ->
                 mostrarSnackbar("Acepto ${which}")
+                eliminarProfesor()
             }
         )
 
@@ -106,6 +107,17 @@ class MainActivity : AppCompatActivity() {
 
         val dialogo = builder.create()
         dialogo.show()
+    }
+    fun eliminarProfesor () {
+        val listView = findViewById<ListView>(R.id.lvMainActivity)
+        val adaptador = ArrayAdapter(
+            this, // contexto
+            android.R.layout.simple_list_item_1,
+            arregloProfesores
+        )
+        listView.adapter = adaptador
+        adaptador.notifyDataSetChanged()
+        arregloProfesores.remove(BaseDatosMemoria.profesorSelecciondo)
     }
 
     fun irActividad (
