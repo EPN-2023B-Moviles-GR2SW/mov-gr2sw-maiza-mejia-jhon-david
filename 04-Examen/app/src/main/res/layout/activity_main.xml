@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3C8EC1"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/txtTituloProfesor"
         android:layout_width="111dp"
         android:layout_height="25dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="88dp"
         android:text="Profesores"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

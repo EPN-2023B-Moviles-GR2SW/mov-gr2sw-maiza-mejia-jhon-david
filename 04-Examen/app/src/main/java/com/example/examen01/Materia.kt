@@ -9,6 +9,5 @@ class Materia (
 
     override fun toString(): String {
         return "Código : $codigo\nNombre : $nombre\nCréditos : $creditos\nHoras : $horas"
-
     }
 }

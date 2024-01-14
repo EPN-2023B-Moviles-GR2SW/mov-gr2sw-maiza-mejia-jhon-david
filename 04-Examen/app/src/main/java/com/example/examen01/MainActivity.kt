@@ -59,24 +59,20 @@ class MainActivity : AppCompatActivity() {
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val posicion = info.position
         posicionItemSeleccionado = posicion
-        mostrarSnackbar("${posicion}")
         BaseDatosMemoria.profesorSelecciondo = arregloProfesores[posicion]
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.miEditar -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
                 irActividad(EditarProfesor::class.java)
                 return true
             }
             R.id.miEliminar -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
                 abrirDialogo()
                 return true
             }
             R.id.miVerMaterias -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
                 irActividad(ListViewMaterias::class.java)
                 return true
             }
@@ -95,7 +91,6 @@ class MainActivity : AppCompatActivity() {
         builder.setPositiveButton(
             "Aceptar",
             DialogInterface.OnClickListener{ dialog, which ->
-                mostrarSnackbar("Acepto ${which}")
                 eliminarProfesor()
             }
         )
@@ -116,8 +111,8 @@ class MainActivity : AppCompatActivity() {
             arregloProfesores
         )
         listView.adapter = adaptador
-        adaptador.notifyDataSetChanged()
         arregloProfesores.remove(BaseDatosMemoria.profesorSelecciondo)
+        adaptador.notifyDataSetChanged()
     }
 
     fun irActividad (

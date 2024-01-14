@@ -72,12 +72,10 @@ class ListViewMaterias : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.itmEditarMateria -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
                 irActividad(EditarMateria::class.java)
                 return true
             }
             R.id.itmEliminarMateria -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
                 abrirDialogo()
                 return true
             }
@@ -97,7 +95,6 @@ class ListViewMaterias : AppCompatActivity() {
         builder.setPositiveButton(
             "Aceptar",
             DialogInterface.OnClickListener{ dialog, which ->
-                mostrarSnackbar("Acepto ${which}")
                 eliminarMateria()
             }
         )
@@ -112,15 +109,15 @@ class ListViewMaterias : AppCompatActivity() {
     }
 
     fun eliminarMateria () {
-        val listView = findViewById<ListView>(R.id.lvMainActivity)
+        val listView = findViewById<ListView>(R.id.lvMaterias)
         val adaptador = ArrayAdapter(
             this, // contexto
             android.R.layout.simple_list_item_1,
             profesorSeleccionado.materias
         )
         listView.adapter = adaptador
-        adaptador.notifyDataSetChanged()
         profesorSeleccionado.materias.remove(BaseDatosMemoria.materiaSeleccionada)
+        adaptador.notifyDataSetChanged()
     }
 
     fun irActividad (
