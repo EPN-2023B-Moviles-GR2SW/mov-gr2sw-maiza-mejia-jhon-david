@@ -26,12 +26,12 @@ class FRecyclerViewAdapatadorNombreDescripcion (
                     nombreTextView = view.findViewById(R.id.tv_nombre)
                     descripcionTextView  = view.findViewById(R.id.tv_descripcion)
                     likesTextView = view.findViewById(R.id.tv_likes)
-                    accionButton = view.findViewById(R.id.tv_nombre)
+                    accionButton = view.findViewById(R.id.btn_dar_like)
                     accionButton.setOnClickListener { anadirLike() }
                 }
 
                 fun anadirLike(){
-                    numeroLikes = numeroLikes + numeroLikes
+                    numeroLikes = numeroLikes + 1
                     likesTextView.text = numeroLikes.toString()
                     contexto.aumentarTotalLikes()
                 }
