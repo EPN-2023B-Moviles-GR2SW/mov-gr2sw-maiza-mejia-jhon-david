@@ -28,4 +28,4 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/map" />
 
-</androidx.constraintlayout.widget.ConstraintLayout
+</androidx.constraintlayout.widget.ConstraintLayout>
