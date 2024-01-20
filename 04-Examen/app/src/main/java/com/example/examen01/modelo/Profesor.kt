@@ -1,6 +1,6 @@
-package com.example.examen01
+package com.example.examen01.modelo
 
-import java.time.LocalDate
+import com.example.examen01.modelo.Materia
 
 class Profesor (
     val cedula: String,

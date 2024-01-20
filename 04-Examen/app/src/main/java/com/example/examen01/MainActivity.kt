@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
+import com.example.examen01.modelo.Profesor
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {

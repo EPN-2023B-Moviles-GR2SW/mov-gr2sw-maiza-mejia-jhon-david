@@ -1,5 +1,8 @@
 package com.example.examen01
 
+import com.example.examen01.modelo.Materia
+import com.example.examen01.modelo.Profesor
+
 class BaseDatosMemoria {
 
     companion object {

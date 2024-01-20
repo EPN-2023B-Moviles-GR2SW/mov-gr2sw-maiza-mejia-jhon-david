@@ -1,4 +1,4 @@
-package com.example.examen01
+package com.example.examen01.modelo
 
 class Materia (
     val codigo: String,

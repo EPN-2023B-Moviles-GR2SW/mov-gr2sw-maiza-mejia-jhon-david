@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.example.examen01.modelo.Materia
 
 class EditarMateria : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
