@@ -40,7 +40,48 @@ class IFirestore : AppCompatActivity() {
         // Order By
         val botonOrderBy = findViewById<Button>(R.id.btn_fs_order_by)
         botonOrderBy.setOnClickListener { consultarConOrderBy(adaptador) }
+
+        val botonCrear = findViewById<Button>(R.id.btn_fs_crar)
+        botonCrear.setOnClickListener { crearEjemplo() }
+
+        val botonFirebase
+
+
+        fun crearEjempo(){
+            val db = Firebase.firestore
+            val reereniaEjemplo = db
+                .collection("ejemplo")
+            val datosEstuiante = hashMapOf(
+                "nombre" to ""
+
+            )
+        }
     }
+    fun eliminarregistro(){
+        val db = Firebase.firestore
+        val referenciaEjemploEstudiante = db
+            .collection(("ejemplo"))
+
+        referenciaEjemploEstudiante
+            .document("12345678")
+            .delete()
+            .addOnCompleteListener{ /* si todo sale bien */}
+            .addOnFailureListener{/* Si algo salio mal*/}
+    }
+
+    fun guardarQuery(
+        documentSnapshot: QuerySnapshot,
+        refCities: Query
+    ){
+        if (documentSnapshot.size() > 0 ){
+            val ultimoDocumento = documentSnapshots
+                .documents[documentSnapshot.size() - 1]
+            query = refCities
+                .startAfter(ultimoDocumento)
+        }
+    }
+
+
 
     fun limpiarArreglo(){
         arreglo.clear()
