@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditarProfesor">
+
+    <EditText
+        android:id="@+id/inputEditarNombre"
+        android:layout_width="255dp"
+        android:layout_height="65dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarCedula"
+        app:layout_constraintEnd_toEndOf="@+id/inputEditarCedula"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputEditarCedula"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815" />
+
+    <EditText
+        android:id="@+id/inputEditarCedula"
+        android:layout_width="255dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="Cédula"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarSueldo"
+        app:layout_constraintEnd_toEndOf="@+id/inputEditarSueldo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputEditarSueldo" />
+
+    <EditText
+        android:id="@+id/inputEditarSueldo"
+        android:layout_width="255dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="Sueldo"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarProfesorTitular"
+        app:layout_constraintEnd_toEndOf="@+id/inputEditarProfesorTitular"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputEditarProfesorTitular" />
+
+    <EditText
+        android:id="@+id/inputEditarProfesorTitular"
+        android:layout_width="255dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="Profesor Titular"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <Button
+        android:id="@+id/btnEditarProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color2"
+        android:text="Editar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <Button
+        android:id="@+id/btnCancelarEditarProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color2"
+        android:text="Cancelar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <TextView
+        android:id="@+id/txtEditarProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Profesor"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/inputEditarNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
