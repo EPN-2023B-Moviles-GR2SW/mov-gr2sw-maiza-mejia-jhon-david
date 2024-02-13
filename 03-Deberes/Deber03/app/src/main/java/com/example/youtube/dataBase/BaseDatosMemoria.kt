@@ -22,6 +22,7 @@ class BaseDatosMemoria {
             arregloCategorias.add(Categoria("Música"))
             arregloCategorias.add(Categoria("Mixes"))
             arregloCategorias.add(Categoria("Juegos"))
+            arregloCategorias.add(Categoria("Deporte"))
 
             arregloShort.add((Short(R.drawable.imageshort1)))
             arregloShort.add((Short(R.drawable.imageshort2)))
