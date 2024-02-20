@@ -20,7 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".NuevaResenia"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Resenia"
             android:exported="false" />
@@ -29,7 +30,8 @@
             android:exported="false" />
         <activity
             android:name=".Busqueda"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Inicio"
             android:exported="false" />

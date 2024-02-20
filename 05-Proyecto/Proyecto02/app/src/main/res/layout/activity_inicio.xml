@@ -150,7 +150,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_peliculas_biblioteca"
+        android:id="@+id/rv_peliculas_catalogo"
         android:layout_width="0dp"
         android:layout_height="504dp"
         android:layout_marginStart="10dp"

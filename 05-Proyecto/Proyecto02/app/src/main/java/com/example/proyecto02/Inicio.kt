@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyecto02.modelo.Pelicula
 
 class Inicio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,22 @@ class Inicio : AppCompatActivity() {
         biblioteca.setOnClickListener{
             irActividad(Biblioteca::class.java)
         }
+
+        var arregloPeliculas = arrayListOf<Pelicula>()
+        arregloPeliculas.add(Pelicula("Oppenheimer", "4/5", "181 min.", R.drawable.imagepelicula))
+
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_peliculas_catalogo)
+        val adaptador = RecyclerViewAdapterPeliculas(
+            this,
+            arregloPeliculas,
+            recyclerView
+        )
+        recyclerView.adapter = adaptador
+        recyclerView.itemAnimator = androidx.recyclerview.widget
+            .DefaultItemAnimator()
+        recyclerView.layoutManager = androidx.recyclerview.widget
+            .LinearLayoutManager(this)
+        adaptador.notifyDataSetChanged()
 
     }
 

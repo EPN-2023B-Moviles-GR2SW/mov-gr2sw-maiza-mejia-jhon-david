@@ -132,21 +132,10 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/iconoflecha"
         app:title="Información"
         app:titleCentered="true" />
 
-
-    <ImageView
-        android:id="@+id/iv_pelicula_reseña"
-        android:layout_width="130dp"
-        android:layout_height="210dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mtb_informacion"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tv_titulo_informacion"
@@ -160,7 +149,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/iv_pelicula_reseña"
+        app:layout_constraintStart_toEndOf="@+id/im_pelicula_informacion"
         app:layout_constraintTop_toBottomOf="@+id/mtb_informacion" />
 
     <TextView
@@ -192,14 +181,14 @@
         android:id="@+id/btn_reseñas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="32dp"
         android:background="@color/blue"
         android:text="Reseñas"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_pelicula_reseña"
-        app:layout_constraintStart_toEndOf="@+id/iv_pelicula_reseña"
-        app:layout_constraintTop_toTopOf="@+id/iv_pelicula_reseña"
-        app:layout_constraintVertical_bias="0.993" />
+        app:layout_constraintBottom_toBottomOf="@+id/im_pelicula_informacion"
+        app:layout_constraintStart_toEndOf="@+id/im_pelicula_informacion"
+        app:layout_constraintTop_toTopOf="@+id/im_pelicula_informacion"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/iv_favorito"
@@ -234,10 +223,10 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/iv_pelicula_reseña"
+        app:layout_constraintEnd_toEndOf="@+id/im_pelicula_informacion"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/iv_pelicula_reseña"
-        app:layout_constraintTop_toBottomOf="@+id/iv_pelicula_reseña" />
+        app:layout_constraintStart_toStartOf="@+id/im_pelicula_informacion"
+        app:layout_constraintTop_toBottomOf="@+id/im_pelicula_informacion" />
 
     <TextView
         android:id="@+id/tv_genero"
@@ -397,5 +386,15 @@
                 android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/im_pelicula_informacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mtb_informacion"
+        app:srcCompat="@drawable/imagepelicula" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
